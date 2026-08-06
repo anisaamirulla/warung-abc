@@ -1,4 +1,4 @@
-<?php include 'includes/cek_session.php';?>
+<?php include 'include/cek_session.php';?>
 <!DOCTYPE html>
 <html>
 <head><title>Tambah Barang - Warung ABC</title></head>

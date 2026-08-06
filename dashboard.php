@@ -2,7 +2,7 @@
 include 'include/cek_session.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Dashboard - Warung ABC</title>
 </head>
@@ -11,11 +11,11 @@ include 'include/cek_session.php';
     <p>Anda Login sebagai: <?php echo $_SESSION['role']; ?></p>
 
     <ul>
-        <?php if ($_SESSION['rolr'] == 'admin' || $_SESSION['role'] == 'gudang') { ?>
+        <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'gudang') { ?>
     <li><a href="data_barang.php">Data Barang</a></li>
 <?php } ?>
 
-<?php if ($_SESSION['rolr'] == 'admin' || $_SESSION['role'] == 'kasir') { ?>
+<?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir') { ?>
     <li><a href="transaksi.php">Transaksi Kasir</a></li>
     <li><a href="riwayat_transaksi.php">Riwayat Transaksi</a></li>
 <?php } ?>
