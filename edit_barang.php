@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'include/cek_session.php';
 include 'config/koneksi.php';
 
@@ -10,7 +9,8 @@ $data  = mysqli_fetch_assoc($hasil);
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Edit Barang - Warung ABC</title></head>
+<head><title>Edit Barang - Warung ABC</title>
+ <link rel="stylesheet" href="style.css"></head>
 <body>
     <h1>Edit Barang</h1>
     <form action="proses_edit_barang.php" method="POST">
@@ -21,7 +21,7 @@ $data  = mysqli_fetch_assoc($hasil);
             <tr><td>Nama Barang</td><td>:</td>
                 <td><input type="text" name="nama_barang" value="<?php echo $data['nama_barang']; ?>" required></td></tr>
             <tr><td>Harga Satuan</td><td>:</td>
-                <td><input type="number" name="harga_satuan" step="0.01" value="<?php echo $data['harga satuan']; ?>" required></td></tr>
+                <td><input type="number" name="harga_satuan" step="0.01" value="<?php echo $data['harga_satuan']; ?>" required></td></tr>
             <tr><td>Stok</td><td>:</td>
                 <td><input type="number" name="stok" value="<?php echo $data['stok']; ?>" required></td></tr>
             <tr><td>Tanggal Kadaluarsa</td><td>:</td>

@@ -1,0 +1,444 @@
+/* =========================================================
+   WARUNG ABC - MODERN STYLE
+   Tema: Maroon + Cream
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff8f2;
+    color: #4a2525;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    background: #f8d9d2;
+    border-radius: 50%;
+    top: -100px;
+    right: -80px;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    background: #f5e0c8;
+    border-radius: 50%;
+    bottom: -100px;
+    left: -70px;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+/* =========================================================
+   JUDUL
+   ========================================================= */
+
+h1 {
+    color: #9e2929;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+h2 {
+    color: #9e2929;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #9e2929;
+}
+
+/* =========================================================
+   LINK
+   ========================================================= */
+
+a {
+    color: #a52d2d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #6e1818;
+    text-decoration: underline;
+}
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+body:has(h1:first-child) {
+    padding: 35px 6%;
+}
+
+/* bagian teks login */
+body p {
+    margin: 8px 0;
+}
+
+/* Menu dashboard */
+body > ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 30px 0;
+}
+
+body > ul li {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 0;
+    box-shadow: 0 8px 25px rgba(111, 45, 45, 0.10);
+    transition: 0.3s;
+    overflow: hidden;
+    border: 1px solid #f1d7d0;
+}
+
+body > ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(111, 45, 45, 0.18);
+}
+
+body > ul li a {
+    display: block;
+    padding: 25px 20px;
+    color: #8f2525;
+    text-align: center;
+    font-size: 17px;
+}
+
+body > ul li a::before {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+body > ul li:nth-child(1) a::before {
+    content: "🛒";
+}
+
+body > ul li:nth-child(2) a::before {
+    content: "💳";
+}
+
+body > ul li:nth-child(3) a::before {
+    content: "📋";
+}
+
+/* =========================================================
+   TOMBOL
+   ========================================================= */
+
+button,
+input[type="submit"],
+input[type="button"] {
+    border: none;
+    background: #a52d2d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background: #7f1f1f;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   INPUT FORM
+   ========================================================= */
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="tel"],
+select {
+    border: 1px solid #e0bdb5;
+    background: #fffdfb;
+    padding: 10px 13px;
+    border-radius: 10px;
+    outline: none;
+    color: #4a2525;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="datetime-local"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    border-color: #a52d2d;
+    box-shadow: 0 0 0 3px rgba(165, 45, 45, 0.10);
+}
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+body:has(input[type="password"]) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background:
+        radial-gradient(circle at 15% 20%, #f7d9d2 0, transparent 25%),
+        radial-gradient(circle at 85% 80%, #f4ddc7 0, transparent 25%),
+        #fff8f2;
+}
+
+body:has(input[type="password"]) h1 {
+    background: #ffffff;
+    width: 420px;
+    margin: 0;
+    padding: 30px 35px 10px;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 10px 35px rgba(91, 38, 38, 0.12);
+    text-align: center;
+}
+
+body:has(input[type="password"]) form {
+    width: 420px;
+    background: #ffffff;
+    padding: 20px 35px 35px;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 10px 35px rgba(91, 38, 38, 0.12);
+}
+
+body:has(input[type="password"]) form input {
+    width: 100%;
+    margin: 5px 0 12px;
+}
+
+body:has(input[type="password"]) form input[type="submit"] {
+    margin-top: 10px;
+}
+
+/* =========================================================
+   TABEL
+   ========================================================= */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    max-width: 1000px;
+    background: #ffffff;
+    border: 1px solid #efd8d1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(91, 38, 38, 0.08);
+    margin: 20px 0;
+}
+
+table th {
+    background: #a52d2d;
+    color: #ffffff;
+    padding: 14px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1e4df;
+    font-size: 14px;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover td {
+    background: #fff5f1;
+}
+
+/* =========================================================
+   AKSI DI TABEL
+   ========================================================= */
+
+table td a {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #f7e0da;
+    font-size: 12px;
+}
+
+table td a:hover {
+    background: #a52d2d;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* =========================================================
+   FORM TAMBAH BARANG
+   ========================================================= */
+
+form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 650px;
+    box-shadow: 0 8px 25px rgba(91, 38, 38, 0.08);
+    border: 1px solid #efd8d1;
+    margin: 20px 0;
+}
+
+form label {
+    font-weight: bold;
+    color: #6c3333;
+}
+
+form input,
+form select {
+    margin: 5px 0 12px;
+}
+
+/* =========================================================
+   TRANSAKSI
+   ========================================================= */
+
+body:has(table) {
+    padding: 35px 5%;
+}
+
+body:has(table) h1 {
+    margin-bottom: 20px;
+}
+
+/* Pilih barang */
+select {
+    min-width: 220px;
+}
+
+/* Input jumlah */
+input[name="jumlah"] {
+    width: 120px;
+}
+
+/* =========================================================
+   TOTAL TRANSAKSI
+   ========================================================= */
+
+table tr:last-child td {
+    font-weight: 800;
+    color: #8f2525;
+    background: #fff3ed;
+    font-size: 15px;
+}
+
+/* =========================================================
+   TOMBOL SIMPAN TRANSAKSI
+   ========================================================= */
+
+a[href*="proses_simpan"],
+button[name*="simpan"],
+input[value*="Simpan"],
+input[value*="simpan"] {
+    background: #a52d2d;
+    color: #ffffff;
+}
+
+/* =========================================================
+   LINK KEMBALI
+   ========================================================= */
+
+p a[href*="dashboard"] {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 9px 18px;
+    background: #f2d8d1;
+    border-radius: 20px;
+    color: #8f2525;
+}
+
+p a[href*="dashboard"]:hover {
+    background: #a52d2d;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* =========================================================
+   PESAN ERROR
+   ========================================================= */
+
+.error,
+.pesan-error,
+.alert {
+    background: #ffe4e0;
+    color: #8f2525;
+    padding: 12px 18px;
+    border-radius: 12px;
+    margin: 15px 0;
+    border-left: 5px solid #a52d2d;
+}
+
+/* =========================================================
+   RESPONSIVE HP
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 25px 15px !important;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    body > ul {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    body:has(input[type="password"]) h1,
+    body:has(input[type="password"]) form {
+        width: 100%;
+        max-width: 420px;
+    }
+}

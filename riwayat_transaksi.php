@@ -6,21 +6,24 @@ $sql = "SELECT t.no_transaksi, t.tanggal, t.total_bayar, u.nama_lengkap AS nama_
 $hasil = mysqli_query($koneksi, $sql);
 ?>
 <!DOCTYPE html>
-<html >
-<head><title>Riwayat Transaksi Warung ABC</title></head>
+<html>
+<head>
+    <title>Riwayat Transaksi - Warung ABC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
     <h1>Riwayat Transaksi</h1>
-    <table border ="1" cellpadding="6">
-        <tr><th>NO. Transaksi</th><th>Tanggal</th><th>Kasir</th><th>Total</th><th>Bayar</th></tr>
+    <table border="1" cellpadding="6">
+        <tr><th>No.Transaksi</th><th>Tanggal</th><th>Kasir</th><th>Total Bayar</th></tr>
         <?php while ($row = mysqli_fetch_assoc($hasil)) { ?>
-    <tr>
-         <td><?php echo $row['no_transaksi']; ?></td>
-         <td><?php echo $row['tanggal']; ?></td>
-         <td><?php echo $row['nama_kasir']; ?></td>
-         <td><?php echo number_format($row['total_bayar'], 0, ',', '.'); ?></td>
-</tr>
-<?php } ?>
-</table>
-<p><a href="dashboard.php">Kembali ke Dashboard</a></p>
+        <tr> 
+            <td><?php echo $row['no_transaksi']; ?></td>
+            <td><?php echo $row['tanggal']; ?></td>
+            <td><?php echo $row['nama_kasir']; ?></td>
+            <td><?php echo number_format($row['total_bayar'], 0, ',', '.'); ?></td>
+        </tr>
+        <?php } ?> 
+    </table>
+    <p><a href="dashboard.php">Kembali ke Dashboard</a></p>
 </body>
 </html>

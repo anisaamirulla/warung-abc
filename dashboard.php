@@ -5,6 +5,7 @@ include 'include/cek_session.php';
 <html>
 <head>
     <title>Dashboard - Warung ABC</title>
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Selamat datang, <?php echo $_SESSION['nama_lengkap'];?></h1>

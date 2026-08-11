@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2026 at 06:21 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Waktu pembuatan: 11 Agu 2026 pada 03.50
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,25 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_barang`
+-- Struktur dari tabel `detail_transaksi`
 --
 
-CREATE TABLE `tbl_barang` (
-  `id_barang` int(11) NOT NULL,
-  `kode_barang` varchar(20) NOT NULL,
-  `nama_barang` varchar(100) NOT NULL,
-  `harga_satuan` decimal(12,2) NOT NULL,
-  `stok` int(11) NOT NULL,
-  `tanggal_kadaluarsa` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_detail_transaksi`
---
-
-CREATE TABLE `tbl_detail_transaksi` (
+CREATE TABLE `detail_transaksi` (
   `id_detail` int(11) NOT NULL,
   `id_transaksi` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
@@ -53,7 +38,22 @@ CREATE TABLE `tbl_detail_transaksi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_log`
+-- Struktur dari tabel `tbl_barang`
+--
+
+CREATE TABLE `tbl_barang` (
+  `id_barang` int(11) NOT NULL,
+  `kode_barang` varchar(20) NOT NULL,
+  `nama_barang` varchar(100) NOT NULL,
+  `harga_satuan` decimal(12,2) NOT NULL,
+  `stok` int(11) NOT NULL,
+  `tanggal_kadaluarsa` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_log`
 --
 
 CREATE TABLE `tbl_log` (
@@ -63,23 +63,37 @@ CREATE TABLE `tbl_log` (
   `waktu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `tbl_log`
+--
+
+INSERT INTO `tbl_log` (`id_log`, `id_user`, `aktivitas`, `waktu`) VALUES
+(1, 1, 'login', '2026-07-30 04:37:23'),
+(2, 1, 'login', '2026-07-30 04:37:42'),
+(3, 1, 'login', '2026-07-30 04:38:19'),
+(4, 1, 'login', '2026-07-30 04:38:44'),
+(5, 1, 'login', '2026-07-30 04:39:07'),
+(6, 1, 'login', '2026-07-30 05:24:30'),
+(7, 1, 'login', '2026-07-30 05:26:23'),
+(8, 1, 'login', '2026-07-30 05:29:24');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pelanggan`
+-- Struktur dari tabel `tbl_pelanggan`
 --
 
 CREATE TABLE `tbl_pelanggan` (
   `id_pelanggan` int(11) NOT NULL,
   `nama_pelanggan` varchar(100) NOT NULL,
-  `no_hp` varchar(20) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL
+  `no_hp` varchar(20) NOT NULL,
+  `alamat` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_transaksi`
+-- Struktur dari tabel `tbl_transaksi`
 --
 
 CREATE TABLE `tbl_transaksi` (
@@ -87,14 +101,14 @@ CREATE TABLE `tbl_transaksi` (
   `no_transaksi` varchar(30) NOT NULL,
   `tanggal` datetime NOT NULL,
   `id_kasir` int(11) NOT NULL,
-  `id_pelanggan` int(11) DEFAULT NULL,
+  `id_pelanggan` int(11) NOT NULL,
   `total_bayar` decimal(12,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -102,49 +116,50 @@ CREATE TABLE `tbl_user` (
   `nama_lengkap` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('admin','kasir','gudang') NOT NULL
+  `role` enum('admin','kasir','gudang','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `username`, `password`, `role`) VALUES
-(1, 'Administrator', 'admin', '$2y$10$dEEOkS/TL0Ilh4ATW6dPZO.SSzsfJLdQNsDj.vS4l7dg1iIYfcKte', 'admin');
+(1, 'Administrator', 'admin', '$2y$10$RAg/CzEKqsvqbwBxf6L7teOmXadY8/JG8hl0ZJ/.MGpP3IjEuiIK.', 'admin');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_barang`
+-- Indeks untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  ADD PRIMARY KEY (`id_detail`),
+  ADD KEY `id_transaksi` (`id_transaksi`),
+  ADD KEY `id_barang` (`id_barang`);
+
+--
+-- Indeks untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   ADD PRIMARY KEY (`id_barang`),
   ADD UNIQUE KEY `kode_barang` (`kode_barang`);
 
 --
--- Indexes for table `tbl_detail_transaksi`
---
-ALTER TABLE `tbl_detail_transaksi`
-  ADD PRIMARY KEY (`id_detail`),
-  ADD KEY `id_transaksi` (`id_transaksi`);
-
---
--- Indexes for table `tbl_log`
+-- Indeks untuk tabel `tbl_log`
 --
 ALTER TABLE `tbl_log`
   ADD PRIMARY KEY (`id_log`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `tbl_pelanggan`
+-- Indeks untuk tabel `tbl_pelanggan`
 --
 ALTER TABLE `tbl_pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indexes for table `tbl_transaksi`
+-- Indeks untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
@@ -152,70 +167,71 @@ ALTER TABLE `tbl_transaksi`
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_barang`
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_detail_transaksi`
---
-ALTER TABLE `tbl_detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_log`
+-- AUTO_INCREMENT untuk tabel `tbl_log`
 --
 ALTER TABLE `tbl_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_pelanggan`
+-- AUTO_INCREMENT untuk tabel `tbl_pelanggan`
 --
 ALTER TABLE `tbl_pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_transaksi`
+-- AUTO_INCREMENT untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tbl_detail_transaksi`
+-- Ketidakleluasaan untuk tabel `detail_transaksi`
 --
-ALTER TABLE `tbl_detail_transaksi`
-  ADD CONSTRAINT `tbl_detail_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `tbl_transaksi` (`id_transaksi`);
+ALTER TABLE `detail_transaksi`
+  ADD CONSTRAINT `detail_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `tbl_transaksi` (`id_transaksi`),
+  ADD CONSTRAINT `detail_transaksi_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `tbl_barang` (`id_barang`);
 
 --
--- Constraints for table `tbl_log`
+-- Ketidakleluasaan untuk tabel `tbl_log`
 --
 ALTER TABLE `tbl_log`
   ADD CONSTRAINT `tbl_log_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Constraints for table `tbl_transaksi`
+-- Ketidakleluasaan untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
   ADD CONSTRAINT `tbl_transaksi_ibfk_1` FOREIGN KEY (`id_kasir`) REFERENCES `tbl_user` (`id_user`),
