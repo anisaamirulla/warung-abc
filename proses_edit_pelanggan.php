@@ -22,7 +22,7 @@ if (mysqli_query($koneksi, $sql)) {
     header('Location: data_pelanggan.php');
     exit;
 } else {
-    echo 'Gagal mengubah data: ' . mysqli_error($koneksi)
+    echo 'Gagal mengubah data: ' . mysqli_error($koneksi);
 
 }
 ?>

@@ -442,3 +442,227 @@ p a[href*="dashboard"]:hover {
         max-width: 420px;
     }
 }
+
+/* ===== TAMPILAN WARUNG ABC ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background: #fdf6f2;
+    color: #7f2424;
+}
+
+/* Judul */
+h1, h2 {
+    color: #a52525;
+    font-weight: bold;
+}
+
+/* Container umum */
+form {
+    background: #fffaf7;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(120, 40, 40, 0.08);
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+/* Input */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+select {
+    padding: 12px 15px;
+    border: 1px solid #e5bcbc;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: #7f2424;
+}
+
+input:focus,
+select:focus {
+    border-color: #a52525;
+}
+
+/* Tombol */
+button,
+input[type="submit"] {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 25px;
+    background: #a52525;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: #861c1c;
+}
+
+/* Link */
+a {
+    color: #a52525;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #721818;
+}
+
+/* ===== TABEL ===== */
+
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fffaf7;
+    box-shadow: 0 5px 20px rgba(120, 40, 40, 0.10);
+}
+
+th {
+    background: #a52525;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e8caca;
+    color: #7f2424;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: #fff0eb;
+}
+
+/* ===== TOMBOL AKSI ===== */
+
+.btn {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 20px;
+    background: #f2d4cd;
+    color: #8b2525;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #a52525;
+    color: white;
+}
+
+/* ===== BAGIAN CARD ===== */
+
+.card {
+    background: #fffaf7;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(120, 40, 40, 0.10);
+}
+
+/* ===== DASHBOARD ===== */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    background: #a52525;
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(120, 40, 40, 0.12);
+}
+
+.menu a:hover {
+    background: #c33a3a;
+    transform: translateY(-3px);
+}
+
+/* ===== FORM EDIT / TAMBAH ===== */
+
+form label {
+    display: inline-block;
+    width: 130px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* ===== BACKGROUND DEKORASI ===== */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #f7ded5;
+    top: -80px;
+    right: -50px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #f8e6cc;
+    bottom: -80px;
+    left: -50px;
+    z-index: -1;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 800px) {
+    body {
+        padding: 20px;
+    }
+
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    form {
+        width: 100%;
+    }
+}

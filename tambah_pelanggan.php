@@ -3,7 +3,7 @@
 <html>
 <head><title>Tambah Pelanggan - Warung ABC</title></head>
 <body>
-    <h1>Tamabh Pelanggan</h1>
+    <h1>Tambah Pelanggan</h1>
     <form action= "proses_tambah_pelanggan.php" method="POST">
         <table>
             <tr><td>Nama Pelanggan</td><td>:</td>

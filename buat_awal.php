@@ -2,7 +2,7 @@
 include 'config/koneksi.php';
 
 $nama = 'Administrator';
-$username = 'admin';
+$username = 'admin2';
 $password = password_hash('admin123', PASSWORD_DEFAULT);
 $role = 'admin';
 

@@ -6,7 +6,7 @@ $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal']: date('Y-m-d');
 $tanggal = mysqli_real_escape_string($koneksi, $tanggal);
 
 $sql = "SELECT t.no_transaksi, t.tanggal, t.total_bayar, u.nama_lengkap AS nama_kasir";
-$sql .= " FROM tbl_transaksi t JOIN tbl_user u ON t.id_kasir = u.id_kasir";
+$sql .= " FROM tbl_transaksi t JOIN tbl_user u ON t.id_kasir = u.id_user";
 $sql .= " WHERE DATE(t.tanggal) = '$tanggal' ORDER BY t.tanggal ASC";
 $hasil = mysqli_query($koneksi, $sql);
 

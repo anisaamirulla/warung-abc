@@ -19,6 +19,9 @@ include 'include/cek_session.php';
 <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir') { ?>
     <li><a href="transaksi.php">Transaksi Kasir</a></li>
     <li><a href="riwayat_transaksi.php">Riwayat Transaksi</a></li>
+    <li><a href="data_pelanggan.php">Data Pelanggan</a></li>
+    <li><a href="laporan_harian.php">Laporan Harian</a></li>
+    <li><a href="laporan_bulanan.php">Laporan Bulanan</a></li>
 <?php } ?>
 </ul>
 

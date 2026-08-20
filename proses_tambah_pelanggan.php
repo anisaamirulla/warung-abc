@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'include/cek_session.php';
 include 'config/koneksi.php';
 
@@ -7,7 +6,7 @@ $nama = mysqli_real_escape_string($koneksi, $_POST['nama_pelanggan']);
 $hp  = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
 $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
 
-$sql = "INSERT INTO tbl_pelanggan ((nama_pelanggan, no_hp, alamat)";
+$sql = "INSERT INTO tbl_pelanggan (nama_pelanggan, no_hp, alamat)";
 $sql  .= " VALUES ('$nama', '$hp', '$alamat')";
 
 if (mysqli_query($koneksi, $sql)) {

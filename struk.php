@@ -1,5 +1,5 @@
 <?php
-include 'includes/cek_session.php';
+include 'include/cek_session.php';
 include 'config/koneksi.php';
 
 $id_transaksi = $_GET['id'];
